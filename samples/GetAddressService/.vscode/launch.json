@@ -3,13 +3,11 @@
     "configurations": [
         {
             "type": "al",
-            "request": "publish",
+            "request": "launch",
             "name": "Publish",
-            "projectRoot": "${workspaceRoot}",
-            "packageFileName": "${command.resolvePackageFileName}",                                                                        
-            "server": "http://localhost",
-            "serverInstance": "navision_main",                
-            "windowsAuthentication": true
+            "server": "https://<vmname>.<azureregion>.cloudapp.azure.com",
+            "serverInstance": "NAV",
+            "authentication": "UserPassword"
         }
     ]
 }

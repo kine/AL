@@ -3,7 +3,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-page 70051003 Addresses
+page 50103 Addresses
 {
     PageType = List;
     SourceTable = Address;
@@ -14,16 +14,36 @@ page 70051003 Addresses
     ShowFilter = False;
     LinksAllowed = False;
 
+    Caption = 'Addresses';
+
     layout
     {
         area(Content)
         {
             repeater(General)
             {
-                field(Address;Address) {}
-                field(Locality;Locality) {}
-                field("Town/City";"Town/City") {}
-                field(County;County) {}
+                Caption = 'General';
+
+                field(Address;Address) 
+                { 
+                    Caption = 'Address';
+                    ApplicationArea = All; 
+                }
+                field(Locality;Locality) 
+                { 
+                    Caption = 'Locality';
+                    ApplicationArea = All; 
+                }
+                field("Town/City";"Town/City") 
+                { 
+                    Caption = 'Town/City';
+                    ApplicationArea = All; 
+                }
+                field(County;County) 
+                { 
+                    Caption = 'Country';
+                    ApplicationArea = All; 
+                }
             }
         }
     }

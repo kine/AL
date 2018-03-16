@@ -3,7 +3,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-page 70051004 "Service Setup"
+page 50104 "Service Setup"
 {
     PageType = Card;
     SourceTable = "Service Connection Setup"; 
@@ -12,14 +12,26 @@ page 70051004 "Service Setup"
     ShowFilter = False;
     LinksAllowed = False;
 
+    Caption = 'Service Setup';
+
     layout
     {
         area(Content)
         {
             group(General)
             {
-                field("Service URL";"Service URL") {}
-                field("API Key";"API Key") {}
+                Caption = 'General';
+
+                field("Service URL";"Service URL") 
+                { 
+                    Caption = 'Serivce URL';
+                    ApplicationArea = All; 
+                }
+                field("API Key";"API Key") 
+                { 
+                    Caption = 'API Key';
+                    ApplicationArea = All; 
+                }
             }
         }
     }

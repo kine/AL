@@ -1,150 +1,12 @@
 {
-    "Snippet: Table": {
-        "prefix": "ttable",
-        "body": [
-            "table ${tableId:id} ${tableName:MyTable}",
-            "{",
-            "",
-            "\tfields",
-            "\t{",
-            "\t\tfield(1;${fieldName:MyField};${fieldType:Integer})",
-            "\t\t{",
-            "\t\t}",
-            "\t}",
-            "",
-            "\tkeys",
-            "\t{",
-            "\t\tkey(1;${keyName:PK};${fieldName:MyField})",
-            "\t\t{",
-            "\t\t\tClustered = true;",
-            "\t\t}",
-            "\t}",
-            "",
-            "\ttrigger OnInsert();",
-            "\tbegin",
-            "\tend;",
-            "",
-            "\ttrigger OnModify();",
-            "\tbegin",
-            "\tend;",
-            "",
-            "\ttrigger OnDelete();",
-            "\tbegin",
-            "\tend;",
-            "",
-            "\ttrigger OnRename();",
-            "\tbegin",
-            "\tend;",
-            "",
-            "}"
-        ],
-        "description": "Snippet: Table"
-    },
-    "Snippet: Page": {
-        "prefix": "tpage",
-        "body": [
-            "page ${pageId:Id} ${pageName:PageName}",
-            "{",
-            "\tPageType = ${pageType:Card};",
-            "\tSourceTable = ${tableName:TableName};",
-            "",
-            "\tlayout",
-            "\t{",
-            "\t\tarea(content)",
-            "\t\t{",
-            "\t\t\tgroup(${gropName:GroupName})",
-            "\t\t\t{",
-            "\t\t\t\tfield(${fieldName:Name};${fieldSource:NameSource})",
-            "\t\t\t\t{",
-            "\t\t\t\t\t",
-            "\t\t\t\t}",
-            "\t\t\t}",
-            "\t\t}",
-            "\t}",
-            "",
-            "\tactions",
-            "\t{",
-            "\t\tarea(${areaType:processing})",
-            "\t\t{",
-            "\t\t\taction(${actionName:ActionName})",
-            "\t\t\t{",
-            "\t\t\t\ttrigger OnAction();",
-            "\t\t\t\tbegin",
-            "\t\t\t\tend;",
-            "\t\t\t}",
-            "\t\t}",
-            "\t}",
-            "}"
-        ]
-    },
-    "Snippet: Codeunit": {
-        "prefix": "tcodeunit",
-        "body": [
-            "codeunit ${codeunitId:id} ${codeunitName:MyCodeunit} ",
-            "{",
-            "\ttrigger OnRun();",
-            "\tbegin",
-            "\tend;",
-            "}"
-        ],
-        "description": "Snippet: Codeunit"
-    },
-    "Snippet: Page Extension": {
-        "prefix": "tpageext",
-        "body": [
-            "pageextension ${extensionId:id} ${extensionName:MyExtension} extends ${target:MyTargetPage}",
-            "{",
-            "\tlayout",
-            "\t{",
-            "\t\t${layoutChanges:// Add changes to page layout here}",
-            "\t}",
-            "",
-            "\tactions",
-            "\t{",
-            "\t\t${actionsChanges:// Add changes to page actions here}",
-            "\t}",
-            "}"
-        ],
-        "description": "Snippet: Page Extension"
-    },
-    "Snippet: Table Extension": {
-        "prefix": "ttableext",
-        "body": [
-            "tableextension ${extensionId:id} ${extensionName:MyExtension} extends ${target:MyTargetTable}",
-            "{",
-            "\tfields",
-            "\t{",
-            "\t\t${tableFieldsChanges:// Add changes to table fields here}",
-            "\t}",
-            "}"
-        ]
-    },
-    "Snippet: Table Field": {
-        "prefix": "tfield",
-        "body": [
-            "field(${fieldId:id};${fieldName:MyField};${fieldType:Type})",
-            "{",
-            "\t${fieldPropertyName:FieldPropertyName} = ${fieldPropertyValue:FieldPropertyValue};",
-            "}"
-        ],
-        "description": "Snippet: Table Field"
-    },
-    "Snippet: Page Field": {
-        "prefix": "tfieldpage",
-        "body": [
-            "field(${fieldName:MyField};${fieldSource:Source})",
-            "{",
-            "\t${fieldPropertyName:FieldPropertyName} = ${fieldPropertyValue:FieldPropertyValue};",
-            "}"
-        ],
-        "description": "Snippet: Page Field"
-    },
     "Snippet: Trigger": {
         "prefix": "ttrigger",
         "body": [
-            "trigger ${triggerName:OnWhat}(${triggerParameters:Parameters});",
+            "trigger ${1:OnWhat}(${2})",
+            "var",
+            "\t${3:myInt}: ${4:Integer};",
             "begin",
-            "\t${triggerStatement:}",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: Trigger"
@@ -152,11 +14,11 @@
     "Snippet: Procedure": {
         "prefix": "tprocedure",
         "body": [
-            "procedure ${procedureName:MyProcedure}();",
+            "${1:local} procedure ${2:MyProcedure}(${3})",
             "var",
-            "\t${varName:VariableName} : ${varType:VariableType};",
+            "\t${4:myInt}: ${5:Integer};",
             "begin",
-            "\t${procedureStatement:}",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: Procedure"
@@ -164,17 +26,17 @@
     "Snippet: Assert Error": {
         "prefix": "tassert",
         "body": [
-            "assertError ${assertStatement:AssertStatement};",
-            "if ${getLastErrorText:getLastErrorText} <> ${errorText:ErrorText} then",
-            "\terror('${unexpectedErrorText:Unexpected error: %1}', ${whichError:getLastErrorText});"
+            "assertError ${1:AssertStatement};",
+            "if ${2:getLastErrorText} <> ${3:ErrorText} then",
+            "\terror('${4:Unexpected error: %1}', ${0:getLastErrorText});"
         ],
         "description": "Snippet: Assert Error"
     },
     "Snippet: With Do": {
         "prefix": "twithdo",
         "body": [
-            "with ${recordName:RecordName} do begin",
-            "\t${withStatement:}",
+            "with ${1:RecordName} do begin",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: With Do"
@@ -182,8 +44,8 @@
     "Snippet: If": {
         "prefix": "tif",
         "body": [
-            "if ${ifCondition:BooleanExpression} then begin",
-            "\t${ifStatement:}",
+            "if ${1:BooleanExpression} then begin",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: If"
@@ -191,10 +53,10 @@
     "Snippet: If Else": {
         "prefix": "tifelse",
         "body": [
-            "if ${ifCondition:BooleanExpression} then begin",
-            "\t${ifStatement:}",
+            "if ${1:BooleanExpression} then begin",
+            "\t${2}",
             "end else begin",
-            "\t${elseStatement:}",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: If Else"
@@ -202,11 +64,11 @@
     "Snippet: Case Of": {
         "prefix": "tcaseof",
         "body": [
-            "case ${caseExpression:BoolExpression} of",
-            "\t${valueSet1:ExpressionOrRange}:",
-            "\t\t${statement1:}",
-            "\t${valueSet2:ExpressionOrRange}:",
-            "\t\t${statement2:}",
+            "case ${1:Expression} of",
+            "\t${2:ExpressionOrRange}:",
+            "\t\t${3}",
+            "\t${4:ExpressionOrRange}:",
+            "\t\t$0",
             "end;"
         ],
         "description": "Snippet: Case Of"
@@ -214,13 +76,13 @@
     "Snippet: Case Else": {
         "prefix": "tcaseelse",
         "body": [
-            "case ${caseExpression:BoolExpression} of",
-            "\t${valueSet1:ExpressionOrRange}:",
-            "\t\t${statement1:}",
-            "\t${valueSet2:ExpressionOrRange}:",
-            "\t\t${statement2:}",
+            "case ${1:Expression} of",
+            "\t${2:ExpressionOrRange}:",
+            "\t\t${3}",
+            "\t${4:ExpressionOrRange}:",
+            "\t\t${5}",
             "else",
-            "\t${statementN:}",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: Case Else"
@@ -228,17 +90,26 @@
     "Snippet: For": {
         "prefix": "tfor",
         "body": [
-            "for ${controlVar:ControlVariable} := ${startNum:StartNumber} to ${endNum:EndNumber} do begin",
-            "\t${forStatement:}",
+            "for ${1:ControlVariable} := ${2:StartNumber} to ${3:EndNumber} do begin",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: For"
     },
+    "Snippet: ForEach": {
+        "prefix": "tforeach",
+        "body": [
+            "foreach ${1:Value} in ${2:EnumerableCollection} do begin",
+            "\t$0",
+            "end;"
+        ],
+        "description": "Snippet: ForEach"
+    },
     "Snippet: While": {
         "prefix": "twhile",
         "body": [
-            "while ${whileExpr:BooleanExpression} do begin",
-            "\t${whileStatement:}",
+            "while ${1:BooleanExpression} do begin",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: While"
@@ -247,54 +118,78 @@
         "prefix": "trepeat",
         "body": [
             "repeat begin",
-            "\t${repeatStatement:}",
-            "end until ${boolExpr:BooleanExpression};"
+            "\t$0",
+            "end until ${1:BooleanExpression};"
         ],
         "description": "Snippet: Repeat Until"
     },
     "Snippet: Event Subscriber": {
         "prefix": "teventsub",
         "body": [
-            "[EventSubscriber(ObjectType::${ObjectType}, ${ObjectId}, '${OnSomeEvent}', '${ElementName}', ${SkipOnMissingLicense}, ${SkipOnMissingPermission})"
+            "[EventSubscriber(ObjectType::${1:ObjectType}, ${2:ObjectId}, ${3:'OnSomeEvent'}, '${4:ElementName}', ${5:SkipOnMissingLicense}, ${6:SkipOnMissingPermission})]",
+            "local procedure ${7:MyProcedure}()",
+            "begin",
+            "\t$0",
+            "end;"
         ],
         "description": "Snippet: Event Subscriber"
+    },
+    "Snippet: Integration Event": {
+        "prefix": "teventint",
+        "body": [
+            "[IntegrationEvent(${1:IncludeSender},${2:GlobalVarAccess})]",
+            "local procedure ${3:MyProcedure}()",
+            "begin",
+            "\t$0",
+            "end;"
+        ],
+        "description": "Snippet: Integration Event"
+    },
+    "Snippet: Business Event": {
+        "prefix": "teventbus",
+        "body": [
+            "[BusinessEvent(${1:IncludeSender})]",
+            "local procedure ${2:MyProcedure}()",
+            "begin",
+            "\t$0",
+            "end;"
+        ],
+        "description": "Snippet: Business Event"
     },
     "Snippet: Caption ML": {
         "prefix": "tcaptionml",
         "body": [
-            "CaptionML = ENU = '${englishText}',",
-            "\t\t\t${languageShortcut} = '${languageText}';"
-        ]
+            "CaptionML = ENU = '${1:englishText}',",
+            "\t\t\t${2:languageShortcut} = '${0:languageText}';"
+        ],
+        "description": "Snippet: Caption ML"
     },
-    "Snippet: Action": {
-        "prefix": "taction",
+    "Snippet: Option Caption ML": {
+        "prefix": "toptioncaptionml",
         "body": [
-            "action(${actionName:ActionName})",
-            "{",
-            "\ttrigger OnAction();",
-            "\tbegin",
-            "\tend;",
-            "}"
-        ]
+            "OptionCaptionML = ENU = '${1:englishText}',",
+            "\t\t\t${2:languageShortcut} = '${0:languageText}';"
+        ],
+        "description": "Snippet: Option Caption ML"
     },
     "Snippet: If Table Empty Else": {
-		"prefix": "tisemptyelse",
-		"body": [
-            "if ${Rec}.IsEmpty then begin",
-            "\t${ifStatement:}",
+        "prefix": "tisemptyelse",
+        "body": [
+            "if ${1:Rec}.IsEmpty then begin",
+            "\t${2}",
             "end else begin",
-            "\t${elseStatement:}",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: If Table Empty Else"
-	},
-	"Snippet: If Table Empty": {
-		"prefix": "tisempty",
-		"body": [
-            "if ${Rec}.IsEmpty then begin",
-            "\t${ifStatement:}",
+    },
+    "Snippet: If Table Empty": {
+        "prefix": "tisempty",
+        "body": [
+            "if ${1:Rec}.IsEmpty then begin",
+            "\t$0",
             "end;"
         ],
         "description": "Snippet: If Table Empty"
-	}
+    }
 }
